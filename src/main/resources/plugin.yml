@@ -1,0 +1,4 @@
+name: CorePlugin
+main: net.guardcode.Core
+author: szymeko
+version: 0.1
