@@ -1,5 +1,8 @@
 package net.guardcode;
 
+import net.guardcode.commands.DayCommand;
+import net.guardcode.commands.MessageCommand;
+import net.guardcode.commands.NightCommand;
 import net.guardcode.listeners.PlayerJoinQuitListener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -20,6 +23,7 @@ public class Core extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig();
 
         getServer().getLogger().info("Loading Core Plugin!");
 
@@ -36,7 +40,10 @@ public class Core extends JavaPlugin {
 
 
     public void regCommands() {
-        Bukkit.getServer().getLogger().info("Loading Commands");
+        getServer().getLogger().info("Loading Commands");
+        getCommand("msg").setExecutor(new MessageCommand());
+        getCommand("night").setExecutor(new NightCommand());
+        getCommand("day").setExecutor(new DayCommand());
     }
 
     public void regListeners() {
